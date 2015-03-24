@@ -3,19 +3,21 @@
 <head>
   <title>Swagger UI</title>
   <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'/>
-  <link href='<?php echo $this->basePath('swagger-ui/css/highlight.default.css'); ?>' media='screen' rel='stylesheet' type='text/css'/>
-  <link href='<?php echo $this->basePath('swagger-ui/css/screen.css'); ?>' media='screen' rel='stylesheet' type='text/css'/>
-  <script type="text/javascript" src="<?php echo $this->basePath('swagger-ui/lib/shred.bundle.js'); ?>"></script>
-  <script src='<?php echo $this->basePath('swagger-ui/lib/jquery-1.8.0.min.js'); ?>' type='text/javascript'></script>
-  <script src='<?php echo $this->basePath('swagger-ui/lib/jquery.slideto.min.js'); ?>' type='text/javascript'></script>
-  <script src='<?php echo $this->basePath('swagger-ui/lib/jquery.wiggle.min.js'); ?>' type='text/javascript'></script>
-  <script src='<?php echo $this->basePath('swagger-ui/lib/jquery.ba-bbq.min.js'); ?>' type='text/javascript'></script>
-  <script src='<?php echo $this->basePath('swagger-ui/lib/handlebars-1.0.0.js'); ?>' type='text/javascript'></script>
-  <script src='<?php echo $this->basePath('swagger-ui/lib/underscore-min.js'); ?>' type='text/javascript'></script>
-  <script src='<?php echo $this->basePath('swagger-ui/lib/backbone-min.js'); ?>' type='text/javascript'></script>
-  <script src='<?php echo $this->basePath('swagger-ui/lib/swagger.js'); ?>' type='text/javascript'></script>
-  <script src='<?php echo $this->basePath('swagger-ui/js/swagger-ui.js'); ?>' type='text/javascript'></script>
-  <script src='<?php echo $this->basePath('swagger-ui/lib/highlight.7.3.pack.js'); ?>' type='text/javascript'></script>
+  <link href='<?=$this->basePath('swagger-ui/css/typography.css')?>' media='screen' rel='stylesheet' type='text/css'/>
+  <link href='<?=$this->basePath('swagger-ui/css/reset.css')?>' media='screen' rel='stylesheet' type='text/css'/>
+  <link href='<?=$this->basePath('swagger-ui/css/screen.css')?>' media='screen' rel='stylesheet' type='text/css'/>
+  <script src='<?=$this->basePath('swagger-ui/lib/shred.bundle.js')?>' type='text/javascript'></script>
+  <script src='<?=$this->basePath('swagger-ui/lib/jquery-1.8.0.min.js')?>' type='text/javascript'></script>
+  <script src='<?=$this->basePath('swagger-ui/lib/jquery.slideto.min.js')?>' type='text/javascript'></script>
+  <script src='<?=$this->basePath('swagger-ui/lib/jquery.wiggle.min.js')?>' type='text/javascript'></script>
+  <script src='<?=$this->basePath('swagger-ui/lib/jquery.ba-bbq.min.js')?>' type='text/javascript'></script>
+  <script src='<?=$this->basePath('swagger-ui/lib/handlebars-2.0.0.js')?>' type='text/javascript'></script>
+  <script src='<?=$this->basePath('swagger-ui/lib/underscore-min.js')?>' type='text/javascript'></script>
+  <script src='<?=$this->basePath('swagger-ui/lib/backbone-min.js')?>' type='text/javascript'></script>
+  <script src='<?=$this->basePath('swagger-ui/lib/swagger-client.js')?>' type='text/javascript'></script>
+  <script src='<?=$this->basePath('swagger-ui/lib/swagger-oauth.js')?>' type='text/javascript'></script>
+  <script src='<?=$this->basePath('swagger-ui/js/swagger-ui.js')?>' type='text/javascript'></script>
+  <script src='<?=$this->basePath('swagger-ui/lib/highlight.7.3.pack.js')?>' type='text/javascript'></script>
   <script type="text/javascript">
     $(function () {
       window.swaggerUi = new SwaggerUi({
@@ -23,7 +25,7 @@
       dom_id: "swagger-ui-container",
       supportedSubmitMethods: ['get', 'post', 'put', 'delete'],
       onComplete: function(swaggerApi, swaggerUi){
-        log("Loaded SwaggerUI")
+        log("Loaded SwaggerUI");
         $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
       },
       onFailure: function(data) {
@@ -39,7 +41,8 @@
         log("added key " + key);
         window.authorizations.add("key", new ApiKeyAuthorization("api_key", key, "query"));
       }
-    })
+    });
+
     window.swaggerUi.load();
   });
 
@@ -52,12 +55,6 @@
     <a id="logo" href="http://swagger.wordnik.com">swagger</a>
 
     <form id='api_selector'>
-      <div class='input icon-btn'>
-        <img id="show-pet-store-icon" src="<?php echo $this->basePath('swagger-ui/images/pet_store_api.png'); ?>" title="Show Swagger Petstore Example Apis">
-      </div>
-      <div class='input icon-btn'>
-        <img id="show-wordnik-dev-icon" src="<?php echo $this->basePath('swagger-ui/images/wordnik_api.png'); ?>" title="Show Wordnik Developer Apis">
-      </div>
       <div class='input'><input placeholder="http://example.com/api" id="input_baseUrl" name="baseUrl" type="text"/></div>
       <div class='input'><input placeholder="api_key" id="input_apiKey" name="apiKey" type="text"/></div>
       <div class='input'><a id="explore" href="#">Explore</a></div>
