@@ -24,3 +24,7 @@
        url('../fonts/droid-sans-v6-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
        url('../fonts/droid-sans-v6-latin-700.svg#DroidSans') format('svg'); /* Legacy iOS */
 }
+
+* {
+    -moz-osx-font-smoothing: grayscale;
+}
